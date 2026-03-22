@@ -1,0 +1,65 @@
+.sightings-list {
+  max-height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sighting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  animation: fadeInUp 0.3s ease forwards;
+  opacity: 0;
+}
+
+.sighting-row:hover {
+  background: var(--safari-green-pale);
+}
+
+.sighting-animal {
+  font-size: 0.85rem;
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.sighting-zone {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--safari-green);
+  background: var(--safari-green-pale);
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.sighting-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.sighting-status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.sighting-status.active {
+  color: #2E7D32;
+  background: #E8F5E9;
+}
+
+.sighting-status.recent {
+  color: #F9A825;
+  background: #FFF8E1;
+}
+
+.sighting-status.past {
+  color: #9E9E9E;
+  background: #F5F5F5;
+}

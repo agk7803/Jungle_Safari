@@ -1,0 +1,224 @@
+.zone-map {
+  grid-column: 1 / -1;
+}
+
+.zone-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.map-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.map-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.map-toggle:hover {
+  border-color: var(--safari-green);
+  color: var(--safari-green);
+}
+
+.map-toggle.on {
+  background: var(--safari-green);
+  color: #fff;
+  border-color: var(--safari-green);
+}
+
+/* ── Weather bar ── */
+.weather-bar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 8px 14px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #E8F5E9, #FFF8E1);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.weather-live-dot {
+  margin-left: auto;
+  color: var(--safari-green);
+  font-weight: 700;
+  font-size: 0.7rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Map container ── */
+.leaflet-container-wrapper {
+  width: 100%;
+  height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  z-index: 1;
+}
+
+/* ── Emoji marker ── */
+.emoji-marker {
+  background: none !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Vehicle pin ── */
+.vehicle-pin {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1565C0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(21, 101, 192, 0.45);
+  animation: vehiclePulse 2s ease-in-out infinite;
+}
+
+.vehicle-marker-icon {
+  background: none !important;
+  border: none !important;
+}
+
+@keyframes vehiclePulse {
+  0%, 100% { box-shadow: 0 2px 8px rgba(21, 101, 192, 0.45); }
+  50% { box-shadow: 0 2px 18px rgba(21, 101, 192, 0.7); }
+}
+
+/* ── Zone label tooltip ── */
+.zone-label {
+  background: rgba(46, 125, 50, 0.85) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 3px 10px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
+}
+
+.zone-label::before {
+  display: none !important;
+}
+
+/* ── Hotspot tooltip label ── */
+.hotspot-label {
+  background: rgba(249, 168, 37, 0.9) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 3px 10px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+}
+
+.hotspot-label::before {
+  border-top-color: rgba(249, 168, 37, 0.9) !important;
+}
+
+/* ── Popups ── */
+.map-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  min-width: 140px;
+}
+
+.map-popup strong {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.popup-emoji {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.popup-zone {
+  font-size: 0.7rem;
+  color: var(--safari-green);
+  font-weight: 600;
+  background: var(--safari-green-pale);
+  padding: 2px 8px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.popup-time {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+}
+
+.leaflet-popup-tip {
+  box-shadow: none !important;
+}
+
+/* ── Legend ── */
+.zone-map-legend {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .leaflet-container-wrapper {
+    height: 300px;
+  }
+  .zone-map-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .weather-bar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}

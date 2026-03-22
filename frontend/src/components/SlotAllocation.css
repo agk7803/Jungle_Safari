@@ -1,0 +1,125 @@
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.slot-item {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-white);
+  transition: var(--transition);
+  animation: fadeInUp 0.4s ease forwards;
+  opacity: 0;
+}
+
+.slot-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.slot-item.available {
+  border-left: 3px solid var(--safari-green);
+}
+
+.slot-item.limited {
+  border-left: 3px solid var(--warning-yellow);
+}
+
+.slot-item.full {
+  border-left: 3px solid var(--alert-red);
+}
+
+.slot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.slot-zone {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.slot-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.slot-badge.available {
+  background: var(--normal-green-light);
+  color: var(--safari-green);
+}
+
+.slot-badge.limited {
+  background: var(--warning-yellow-light);
+  color: #F57F17;
+}
+
+.slot-badge.full {
+  background: var(--alert-red-light);
+  color: var(--alert-red);
+}
+
+.slot-progress-track {
+  height: 6px;
+  background: #F5F5F5;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.slot-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+.available .slot-progress-fill {
+  background: var(--safari-green);
+}
+
+.limited .slot-progress-fill {
+  background: var(--warning-yellow);
+}
+
+.full .slot-progress-fill {
+  background: var(--alert-red);
+}
+
+.slot-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.slot-ratio {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.slot-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .slot-grid {
+    grid-template-columns: 1fr;
+  }
+}
